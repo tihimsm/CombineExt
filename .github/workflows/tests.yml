@@ -12,21 +12,21 @@ jobs:
         platform: [macOS, iOS, tvOS]
         include:
           - platform: macOS
-            sdk: macosx
+            sdk: macosx11.3
             destination: "arch=x86_64"
 
           - platform: iOS
-            sdk: iphonesimulator
-            destination: "name=iPhone 11"
+            sdk: iphoneos15.0
+            destination: "name=iPhone 13"
 
           - platform: tvOS
-            sdk: appletvsimulator
+            sdk: appletvsimulator15.0
             destination: "name=Apple TV"
 
     steps:
       - uses: actions/checkout@v2
-      - name: Select Xcode 12 (beta)
-        run: sudo xcode-select -s /Applications/Xcode_12_beta.app
+      - name: Select Xcode 13 (beta)
+        run: sudo xcode-select -s /Applications/Xcode_13_0.app
       - name: Generate project
         run: make project
       - name: Run tests
